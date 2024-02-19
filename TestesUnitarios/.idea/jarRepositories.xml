@@ -7,14 +7,14 @@
       <option name="url" value="http://nexus:8080/nexus/repository/releases" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="releases" />
-      <option name="name" value="releases" />
-      <option name="url" value="https://pkgs.dev.azure.com/devopsmapfre/devopsmapfre/_packaging/releases/maven/v1" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="releases" />
+      <option name="name" value="releases" />
+      <option name="url" value="https://pkgs.dev.azure.com/devopsmapfre/devopsmapfre/_packaging/releases/maven/v1" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss-earlyaccess-repository" />
