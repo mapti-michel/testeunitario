@@ -10,6 +10,10 @@ import org.junit.Test;
 
 import java.util.Date;
 
+import static br.ce.wcaquino.utils.DataUtils.isMesmaData;
+import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
+import static org.hamcrest.CoreMatchers.*;
+
 public class LocacaoServiceTest {
 
     @Test
@@ -25,9 +29,19 @@ public class LocacaoServiceTest {
         Locacao locacao = service.alugarFilme(usuario, filme);
 
         // verificação
-        Assert.assertTrue(locacao.getValor() == 5.0);
-        Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
-        Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
+        Assert.assertThat(locacao.getValor(), is(equalTo(5.0)));// verifique se o valor da locação é igual a 5
+        Assert.assertThat(locacao.getValor(), is(not(6.0)));// verifique se o valor da locação é igual a 5
+
+        Assert.assertThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+        Assert.assertThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+
+
+        Assert.assertEquals(5.0,locacao.getValor() == 5.0);
+
+
+
+//        Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
+//        Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
     }
 
 
